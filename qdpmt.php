@@ -18,8 +18,11 @@ class qdpmt extends Module
   public function install()
   {
     if( 
-      parent::install() == false 
-      /*||*/
+      parent::install() === false 
+      /*
+      ||
+      $this->registerHook('RightColum') === false
+      */
       )
     return false;
     return true;
@@ -28,11 +31,24 @@ class qdpmt extends Module
   public function uninstall()
   {
     if( 
-      parent::install() == false 
-      /*||*/
+      parent::uninstall() == false 
+      /*
+      ||
+      $this->unregisterHook('RightColum') === false
+      */
       )
     return false;
     return true;
   }
+  
+  /*
+  public function hookRightColumn( $params )
+  {
+    global $smarty;
+    $smarty->assign('variable','var');
+    return $this->display(__FILE__, 'template.tpl');
+  }
+  */
+
 }
 ?>
